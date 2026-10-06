@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Love Quote Card</title>
+  <title>Love Quote Template</title>
   <style>
     * {
       box-sizing: border-box;
     }
 
     :root {
-      --bg1: #0f0c20;
-      --bg2: #171327;
+      --bg-1: #0f0c20;
+      --bg-2: #171327;
       --pink: #ec4899;
       --pink-soft: #f472b6;
       --purple: #a855f7;
       --white: #f8fafc;
-      --muted: #dbe3f0;
+      --line: rgba(255, 255, 255, 0.12);
     }
 
     html, body {
       margin: 0;
-      width: 100%;
       min-height: 100vh;
+      width: 100%;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background:
         radial-gradient(circle at top, rgba(168, 85, 247, 0.18), transparent 30%),
         radial-gradient(circle at bottom, rgba(236, 72, 153, 0.16), transparent 35%),
-        linear-gradient(135deg, var(--bg1), var(--bg2));
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -49,9 +49,9 @@
       position: relative;
       width: min(92vw, 500px);
       padding: 42px 30px 28px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 26px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
       box-shadow:
         0 25px 60px rgba(0, 0, 0, 0.52),
         0 0 30px rgba(236, 72, 153, 0.14),
@@ -100,25 +100,9 @@
 
     .message-body p {
       margin: 10px 0;
-      animation: fadeInText 1.2s ease both;
-    }
-
-    .message-body p:nth-child(2) { animation-delay: 0.15s; }
-    .message-body p:nth-child(3) { animation-delay: 0.3s; }
-    .message-body p:nth-child(4) { animation-delay: 0.45s; }
-    .message-body p:nth-child(5) { animation-delay: 0.6s; }
-    .message-body p:nth-child(6) { animation-delay: 0.75s; }
-    .message-body p:nth-child(7) { animation-delay: 0.9s; }
-
-    @keyframes fadeInText {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      opacity: 0;
+      transform: translateY(8px);
+      animation: fadeInText 1.2s ease forwards;
     }
 
     .highlight {
@@ -135,6 +119,17 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--pink), transparent);
       opacity: 0.9;
+    }
+
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 480px) {
@@ -158,18 +153,201 @@
 <body>
   <div class="card">
     <div class="quote-mark">“</div>
-
-    <div class="message-body">
-      <p>Toh ja na, karna kisi aur ko request...</p>
-      <p>Main kehti hoon kya ki tum mere paas aao? <span class="highlight">Haan?</span></p>
-      <p>Ja kisi aur ke paas kar le. Ok!</p>
-      <p>Main nahin kehti ki mere aage haath jod.</p>
-      <p>Jo karna hai ja kar le, jiske saath karna uske saath kar.</p>
-      <p>Maine kya mana kar rakha hai tujhe?</p>
-      <p>Kisi aur ko itna request karta na, pura jism khol kar dikha deti tujhe.</p>
-    </div>
-
+    <div class="message-body" id="message-body"></div>
     <div class="footer-line"></div>
   </div>
+
+  <script>
+    // Edit this data to customize your message.
+    const cardData = {
+      lines: [
+        "Toh ja na, karna kisi aur ko request...",
+        "Main kehti hoon kya ki tum mere paas aao? <span class='highlight'>Haan?</span>",
+        "Ja kisi aur ke paas kar le. Ok!",
+        "Main nahin kehti ki mere aage haath jod.",
+        "Jo karna hai ja kar le, jiske saath karna uske saath kar.",
+        "Maine kya mana kar rakha hai tujhe?",
+        "Kisi aur ko itna request karta na, pura jism khol kar dikha deti tujhe."
+      ]
+    };
+
+    const messageBody = document.getElementById('message-body');
+
+    cardData.lines.forEach((line, index) => {
+      const para = document.createElement('p');
+      para.innerHTML = line;
+      para.style.animationDelay = `${index * 0.15}s`;
+      messageBody.appendChild(para);
+    });
+  </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
