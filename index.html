@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Quote Card</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg1: #0f0c20;
+      --bg2: #171327;
+      --pink: #ec4899;
+      --pink-soft: #f472b6;
+      --purple: #a855f7;
+      --white: #f8fafc;
+      --muted: #dbe3f0;
+    }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(168, 85, 247, 0.18), transparent 30%),
+        radial-gradient(circle at bottom, rgba(236, 72, 153, 0.16), transparent 35%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    .card {
+      position: relative;
+      width: min(92vw, 500px);
+      padding: 42px 30px 28px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 26px;
+      box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.52),
+        0 0 30px rgba(236, 72, 153, 0.14),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      overflow: hidden;
+      animation: floatCard 5s ease-in-out infinite;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(236,72,153,0.08), transparent 40%, rgba(168,85,247,0.08));
+      pointer-events: none;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .quote-mark {
+      position: absolute;
+      top: 14px;
+      left: 22px;
+      font-size: 64px;
+      line-height: 1;
+      color: var(--pink);
+      opacity: 0.4;
+      font-weight: 700;
+      user-select: none;
+      text-shadow: 0 0 16px rgba(236, 72, 153, 0.5);
+    }
+
+    .message-body {
+      position: relative;
+      z-index: 1;
+      margin-top: 24px;
+      color: var(--white);
+      font-size: 1.08rem;
+      line-height: 1.85;
+      letter-spacing: 0.3px;
+    }
+
+    .message-body p {
+      margin: 10px 0;
+      animation: fadeInText 1.2s ease both;
+    }
+
+    .message-body p:nth-child(2) { animation-delay: 0.15s; }
+    .message-body p:nth-child(3) { animation-delay: 0.3s; }
+    .message-body p:nth-child(4) { animation-delay: 0.45s; }
+    .message-body p:nth-child(5) { animation-delay: 0.6s; }
+    .message-body p:nth-child(6) { animation-delay: 0.75s; }
+    .message-body p:nth-child(7) { animation-delay: 0.9s; }
+
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .highlight {
+      color: var(--pink-soft);
+      font-weight: 700;
+      text-shadow: 0 0 12px rgba(244, 114, 182, 0.35);
+    }
+
+    .footer-line {
+      position: relative;
+      z-index: 1;
+      margin-top: 22px;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--pink), transparent);
+      opacity: 0.9;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 34px 22px 22px;
+      }
+
+      .message-body {
+        font-size: 0.97rem;
+        line-height: 1.7;
+      }
+
+      .quote-mark {
+        left: 16px;
+        top: 12px;
+        font-size: 52px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="quote-mark">“</div>
+
+    <div class="message-body">
+      <p>Toh ja na, karna kisi aur ko request...</p>
+      <p>Main kehti hoon kya ki tum mere paas aao? <span class="highlight">Haan?</span></p>
+      <p>Ja kisi aur ke paas kar le. Ok!</p>
+      <p>Main nahin kehti ki mere aage haath jod.</p>
+      <p>Jo karna hai ja kar le, jiske saath karna uske saath kar.</p>
+      <p>Maine kya mana kar rakha hai tujhe?</p>
+      <p>Kisi aur ko itna request karta na, pura jism khol kar dikha deti tujhe.</p>
+    </div>
+
+    <div class="footer-line"></div>
+  </div>
+</body>
+</html>
